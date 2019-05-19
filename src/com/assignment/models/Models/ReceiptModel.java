@@ -11,6 +11,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ReceiptModel {
+    /**
+     * Creates a new receipt in the database, and returns its id given by the database
+     * @param user the user's instance
+     * @param paymentMethod the payment method
+     * @return new id from the database
+     * @throws SQLException
+     */
     public long createReceipt(User user, PaymentMethod paymentMethod) throws SQLException {
         try {
             Connection connection = DbConnector.getConnection();

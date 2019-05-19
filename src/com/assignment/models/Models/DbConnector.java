@@ -12,6 +12,12 @@ public class DbConnector {
     private static final String USER = "storeappdb";
     private static final String PASS = "storeappdb";
 
+    /**
+     * Creates connection to the database
+     * @return Connection
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static Connection getConnection() throws SQLException, ClassNotFoundException{
         if(connect == null){
             try {

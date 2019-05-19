@@ -7,6 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class RegisterModel {
+    /**
+     * Creates a new user in the database given by the parameter
+     * @param user the new user instance
+     * @throws SQLException
+     */
     public void Register(User user) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();

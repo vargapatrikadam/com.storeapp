@@ -8,6 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginModel {
+    /**
+     * Checks if the username and password is correct from the database
+     * @param username the user's username
+     * @param password the user's password
+     * @return User instance or null
+     * @throws SQLException
+     */
     public User Login(String username, String password) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();

@@ -11,6 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class WareReceiptModel {
+    /**
+     * Adds wares to the receipt with the given id from the wares list
+     * @param wares the wares list
+     * @param id the receipt's id
+     * @throws SQLException
+     */
     public void createWareReceipt(ArrayList<Ware> wares, long id) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();

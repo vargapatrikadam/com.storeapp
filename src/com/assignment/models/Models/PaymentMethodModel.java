@@ -9,6 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PaymentMethodModel {
+    /**
+     * Gets payment method from the database by the given name
+     * @param name the payment methods's name
+     * @return Payment method instance
+     * @throws SQLException
+     */
     public PaymentMethod getPaymentMethodByName(String name) throws SQLException {
         try {
             Connection connection = DbConnector.getConnection();

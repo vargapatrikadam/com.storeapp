@@ -36,17 +36,30 @@ public class StoreModel {
     }
 
 
-
+    /**
+     * Adds a ware to the shoppingList list from the storeList by its id
+     * @param id the ware's id
+     */
     public void addToShoppingListById(int id){
         Ware ware = wares.stream().filter(x -> x.getId() == id).findAny().orElse(null);
         shoppingList.add(ware);
         totalPrice += ware.getPrice();
     }
+
+    /**
+     * Removes a ware from the shoppingList list by its id
+     * @param id the ware's id
+     */
     public void removeFromShoppingListById(int id){
         Ware ware = shoppingList.stream().filter(x -> x.getId() == id).findAny().orElse(null);
         shoppingList.remove(ware);
         totalPrice -= ware.getPrice();
     }
+
+    /**
+     * Populates the store list from the database with all the available wares
+     * @throws SQLException
+     */
     public void getAllWares() throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();
@@ -76,6 +89,12 @@ public class StoreModel {
         } catch (ClassNotFoundException e) { }
     }
 
+    /**
+     * Returns a ware_type from the database by its id
+     * @param id the ware_type's id
+     * @return Ware_type instance
+     * @throws SQLException
+     */
     public Ware_type getWareTypeById(int id) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();
@@ -98,6 +117,13 @@ public class StoreModel {
         catch (NumberFormatException e) { }
         return null;
     }
+
+    /**
+     * Returns a manufacturer from the database by its id
+     * @param id the manufacturer's id
+     * @return Manufacturer instance
+     * @throws SQLException
+     */
     public Manufacturer getManufacturerById(int id) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();
