@@ -36,6 +36,8 @@ public class CheckoutView extends JFrame{
         this.paymentStatus.setText(status);
     }
 
+    public void setNextButtonStatus(boolean status){this.nextButton.setEnabled(status);}
+
     public void setEmail_tf(String email) {
         this.email_tf.setText(email);
     }
@@ -78,6 +80,7 @@ public class CheckoutView extends JFrame{
         this.email_tf.setEnabled(false);
         this.firstname_tf.setEnabled(false);
         this.lastname_tf.setEnabled(false);
+        this.nextButton.setEnabled(false);
         paymentType = new ButtonGroup();
 
         paymentType.add(bank_card);

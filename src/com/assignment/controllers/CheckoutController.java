@@ -2,6 +2,7 @@ package com.assignment.controllers;
 
 import com.assignment.Classes.BankCardInfo;
 import com.assignment.Classes.CODInfo;
+import com.assignment.Exceptions.PaymentFailedException;
 import com.assignment.Interfaces.IPaymentInfo;
 import com.assignment.Strategy.BankCardPayment;
 import com.assignment.Strategy.CODPayment;
@@ -38,6 +39,7 @@ public class CheckoutController {
         this.view.setC_o_dActionListener(new CodPaymentSelectedListener());
         this.view.setBank_cardActionListener(new BankCardPaymentSelectedListener());
         this.view.setNextButtonActionListener(new PayButtonListener());
+
     }
 
     class BankCardPaymentSelectedListener implements ActionListener{
@@ -54,6 +56,7 @@ public class CheckoutController {
             bankcardview.setVisible(true);
             info = new BankCardInfo();
             strategy = new BankCardPayment();
+            view.setNextButtonStatus(true);
         }
     }
 
@@ -64,13 +67,20 @@ public class CheckoutController {
             info = new CODInfo();
             ((CODInfo) info).setUser(model.getUser());
             strategy = new CODPayment();
+            view.setNextButtonStatus(true);
         }
     }
     class PayButtonListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.setPaymentStatus(strategy.Pay(info));
+            try {
+                view.setPaymentStatus(strategy.Pay(info));
+            }
+            catch(PaymentFailedException ex) {
+                view.setNextButtonStatus(false);
+                view.setPaymentStatus(ex.getMessage());
+            }
         }
     }
 }

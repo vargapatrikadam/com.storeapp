@@ -1,16 +1,17 @@
 package com.assignment.Strategy;
 
 import com.assignment.Classes.BankCardInfo;
+import com.assignment.Exceptions.PaymentFailedException;
 import com.assignment.Interfaces.IPaymentInfo;
 
 public class BankCardPayment extends PaymentStrategy {
     @Override
-    public String Pay(IPaymentInfo info) {
+    public String Pay(IPaymentInfo info) throws PaymentFailedException {
         if(Transaction(info)){
             return "Transaction successful!";
         }
         else{
-            return "Transaction unsuccessful!";
+            throw new PaymentFailedException("Transaction failed!");
         }
     }
     private boolean Transaction(IPaymentInfo info){
