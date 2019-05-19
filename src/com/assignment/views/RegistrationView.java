@@ -54,6 +54,7 @@ public class RegistrationView extends JFrame{
     public RegistrationView(){
         add(rootPanel);
         setTitle("Registration");
+        setResizable(false);
         setSize(400,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }

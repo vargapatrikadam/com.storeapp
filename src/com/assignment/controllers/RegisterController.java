@@ -18,6 +18,7 @@ public class RegisterController {
         view.setRegisterActionListener(new RegisterListener());
     }
 
+
     class RegisterListener implements ActionListener {
 
         @Override
