@@ -7,11 +7,16 @@ public class DbConnector {
 
     }
     private static Connection connect;
+
+    private static final String URL = "jdbc:mysql://localhost/storeappdb";
+    private static final String USER = "storeappdb";
+    private static final String PASS = "storeappdb";
+
     public static Connection getConnection(){
         if(connect == null){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                connect = DriverManager.getConnection("jdbc:mysql://localhost/storeappdb","storeappdb","storeappdb");
+                connect = DriverManager.getConnection(URL, USER, PASS);
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
