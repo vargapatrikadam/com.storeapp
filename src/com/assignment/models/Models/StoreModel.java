@@ -89,6 +89,14 @@ public class StoreModel {
         } catch (ClassNotFoundException e) { }
     }
 
+    public void addWare(Ware ware){
+        wares.add(ware);
+    }
+
+    public void removeWare(Ware ware){
+        wares.remove(ware);
+    }
+
     /**
      * Returns a ware_type from the database by its id
      * @param id the ware_type's id
