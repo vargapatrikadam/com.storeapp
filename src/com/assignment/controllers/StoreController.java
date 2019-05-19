@@ -1,5 +1,6 @@
 package com.assignment.controllers;
 
+import com.assignment.State.Delivery;
 import com.assignment.models.DB_Models.User;
 import com.assignment.models.DB_Models.Ware;
 import com.assignment.models.Models.CheckoutModel;
@@ -8,12 +9,12 @@ import com.assignment.views.CheckoutView;
 import com.assignment.views.StoreView;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class StoreController {
     private StoreModel model;
@@ -52,6 +53,25 @@ public class StoreController {
         }
 
         table.setModel(model);
+    }
+
+    public void startDelivery(Delivery delivery){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            int stateChanges = 0;
+            @Override
+            public void run() {
+                if (stateChanges < 5) {
+                    view.setTransportState_lbl(delivery.getStateMessage());
+                    delivery.stateChange();
+                    stateChanges++;
+                }
+                else{
+                    timer.cancel();
+                    timer.purge();
+                }
+            }
+        }, 0, 5000);
     }
 
     class AddToShoppingList implements ActionListener{

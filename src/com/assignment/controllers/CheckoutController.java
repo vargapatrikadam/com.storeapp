@@ -4,12 +4,12 @@ import com.assignment.Classes.BankCardInfo;
 import com.assignment.Classes.CODInfo;
 import com.assignment.Exceptions.PaymentFailedException;
 import com.assignment.Interfaces.IPaymentInfo;
+import com.assignment.State.Delivery;
 import com.assignment.Strategy.BankCardPayment;
 import com.assignment.Strategy.CODPayment;
 import com.assignment.Strategy.PaymentStrategy;
 import com.assignment.models.DB_Models.PaymentMethod;
 import com.assignment.models.DB_Models.User;
-import com.assignment.models.DB_Models.Ware;
 import com.assignment.models.Models.*;
 import com.assignment.views.BankCardPaymentView;
 import com.assignment.views.CheckoutView;
@@ -93,6 +93,7 @@ public class CheckoutController {
 
                 wareReceiptModel.createWareReceipt(storeController.getShoppingList(), id);
 
+                storeController.startDelivery(new Delivery());
             }
             catch(PaymentFailedException ex) {
                 view.setNextButtonStatus(false);
