@@ -1,6 +1,9 @@
 package com.assignment.models.DB_Models;
 
+import java.io.Serializable;
+
 public class DeliveryMethod {
+
     private int id;
     private String delivery_method;
 
