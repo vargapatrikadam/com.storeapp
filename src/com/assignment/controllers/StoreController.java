@@ -39,12 +39,28 @@ public class StoreController {
         view.removeFromShoppingListActionListener(new RemoveFromShoppingList());
         view.setCheckoutButtonActionListener(new GoToCheckout());
     }
+
+    /**
+     * Gets the logged in user's instance
+     * @return User instance
+     */
     public User getUser(){
         return this.model.getLoggedInUser();
     }
+
+    /**
+     * Gets the logged in user's shopping list
+     * @return The shoppingList instance
+     */
     public ArrayList<Ware> getShoppingList(){
         return this.model.shoppingList;
     }
+
+    /**
+     * Populates JTables with data
+     * @param table the table which we want to populate
+     * @param list the list we want it to be populated with
+     */
     public void showTableData(JTable table, ArrayList<Ware> list){
         DefaultTableModel model = (DefaultTableModel)table.getModel();
 
@@ -61,6 +77,10 @@ public class StoreController {
         table.setModel(model);
     }
 
+    /**
+     * Starts a delivery and sets the view's delivery state label
+     * @param delivery the delivery instance
+     */
     public void startDelivery(Delivery delivery){
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {

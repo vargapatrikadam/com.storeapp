@@ -52,6 +52,10 @@ public class CheckoutController {
 
     }
 
+    /**
+     * Sets it's view's next button enabled or not
+     * @param status true if it's enabled, false if it's not
+     */
     public void setNextButtonStatus(boolean status){
         view.setNextButtonStatus(status);
     }
