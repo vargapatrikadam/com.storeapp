@@ -11,6 +11,7 @@ public class LoginView extends JFrame{
     private JButton login_btn;
     private JPanel rootPanel;
     private JButton registerButton;
+    private JLabel message_lbl;
 
     public String getUsername(){
         return this.username_tf.getText();
@@ -18,6 +19,7 @@ public class LoginView extends JFrame{
     public String getPassword(){
         return new String(password_pf.getPassword());
     }
+    public void setMessage(String msg){this.message_lbl.setText(msg);}
 
     public void setLoginActionListener(ActionListener listener){
         this.login_btn.addActionListener(listener);
@@ -30,8 +32,12 @@ public class LoginView extends JFrame{
     public LoginView() {
         add(rootPanel);
         setTitle("StoreApp");
+        setResizable(false);
         setSize(400,200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
