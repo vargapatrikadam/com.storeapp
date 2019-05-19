@@ -4,7 +4,6 @@ public class Receipt {
     private int id;
     private int payment_method;
     private int user_id;
-    private int delivery_method;
 
     public int getId() {
         return id;
@@ -30,11 +29,4 @@ public class Receipt {
         this.user_id = user_id;
     }
 
-    public int getDelivery_method() {
-        return delivery_method;
-    }
-
-    public void setDelivery_method(int delivery_method) {
-        this.delivery_method = delivery_method;
-    }
 }

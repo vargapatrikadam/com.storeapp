@@ -7,9 +7,10 @@ import com.assignment.Interfaces.IPaymentInfo;
 import com.assignment.Strategy.BankCardPayment;
 import com.assignment.Strategy.CODPayment;
 import com.assignment.Strategy.PaymentStrategy;
+import com.assignment.models.DB_Models.PaymentMethod;
 import com.assignment.models.DB_Models.User;
-import com.assignment.models.Models.BankCardPaymentModel;
-import com.assignment.models.Models.CheckoutModel;
+import com.assignment.models.DB_Models.Ware;
+import com.assignment.models.Models.*;
 import com.assignment.views.BankCardPaymentView;
 import com.assignment.views.CheckoutView;
 
@@ -20,13 +21,21 @@ public class CheckoutController {
     private CheckoutModel model;
     private CheckoutView view;
     private CheckoutController controller;
+    private StoreController storeController;
+    private ReceiptModel receiptModel;
+    private WareReceiptModel wareReceiptModel;
+    private PaymentMethodModel paymentMethodModel;
     PaymentStrategy strategy;
     IPaymentInfo info;
 
-    public CheckoutController(CheckoutModel model, CheckoutView view) {
+    public CheckoutController(CheckoutModel model, CheckoutView view, StoreController storeController) {
         this.model = model;
         this.view = view;
         this.controller = this;
+        this.storeController = storeController;
+        this.receiptModel = new ReceiptModel();
+        this.wareReceiptModel = new WareReceiptModel();
+        this.paymentMethodModel = new PaymentMethodModel();
 
         User user = model.getUser();
         this.view.setCity_tf(user.getCity());
@@ -76,6 +85,14 @@ public class CheckoutController {
         public void actionPerformed(ActionEvent e) {
             try {
                 view.setPaymentStatus(strategy.Pay(info));
+                User user = storeController.getUser();
+
+                PaymentMethod method = paymentMethodModel.getPaymentMethodByName(info.info());
+
+                long id = receiptModel.createReceipt(user, method);
+
+                wareReceiptModel.createWareReceipt(storeController.getShoppingList(), id);
+
             }
             catch(PaymentFailedException ex) {
                 view.setNextButtonStatus(false);

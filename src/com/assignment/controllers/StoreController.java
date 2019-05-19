@@ -1,5 +1,6 @@
 package com.assignment.controllers;
 
+import com.assignment.models.DB_Models.User;
 import com.assignment.models.DB_Models.Ware;
 import com.assignment.models.Models.CheckoutModel;
 import com.assignment.models.Models.StoreModel;
@@ -17,10 +18,12 @@ import java.util.ArrayList;
 public class StoreController {
     private StoreModel model;
     private StoreView view;
+    private StoreController controller;
 
     public StoreController(StoreModel model, StoreView view) {
         this.model = model;
         this.view = view;
+        this.controller = this;
         model.getAllWares();
         showTableData(view.getStore_table(), model.wares);
         showTableData(view.getShopping_list_table(), model.shoppingList);
@@ -29,7 +32,12 @@ public class StoreController {
         view.removeFromShoppingListActionListener(new RemoveFromShoppingList());
         view.setCheckoutButtonActionListener(new GoToCheckout());
     }
-
+    public User getUser(){
+        return this.model.getLoggedInUser();
+    }
+    public ArrayList<Ware> getShoppingList(){
+        return this.model.shoppingList;
+    }
     public void showTableData(JTable table, ArrayList<Ware> list){
         DefaultTableModel model = (DefaultTableModel)table.getModel();
 
@@ -92,7 +100,8 @@ public class StoreController {
                 checkoutModel.setUser(model.getLoggedInUser());
                 CheckoutController checkoutController = new CheckoutController(
                         checkoutModel,
-                        checkoutView
+                        checkoutView,
+                        controller
                 );
                 checkoutView.setVisible(true);
             }
