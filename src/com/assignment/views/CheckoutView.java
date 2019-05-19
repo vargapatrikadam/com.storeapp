@@ -70,7 +70,7 @@ public class CheckoutView extends JFrame{
         add(rootPanel);
         setTitle("Checkout");
         setResizable(false);
-        setSize(400, 400);
+        setSize(800, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.streetnumber_tf.setEnabled(false);

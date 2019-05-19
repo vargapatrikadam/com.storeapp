@@ -1,6 +1,13 @@
 package com.assignment.models.Models;
 
+import com.assignment.models.DB_Models.User;
+
 public class BankCardPaymentModel {
+    private String bank_card_number;
+    private String exp_date;
+    private String cvc;
+    private User user;
+
     public String getBank_card_number() {
         return bank_card_number;
     }
@@ -25,7 +32,11 @@ public class BankCardPaymentModel {
         this.cvc = cvc;
     }
 
-    private String bank_card_number;
-    private String exp_date;
-    private String cvc;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

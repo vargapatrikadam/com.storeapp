@@ -47,7 +47,7 @@ public class StoreModel {
         shoppingList.remove(ware);
         totalPrice -= ware.getPrice();
     }
-    public void getAllWares() {
+    public void getAllWares() throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();
             Statement stmnt = connection.createStatement();
@@ -72,36 +72,52 @@ public class StoreModel {
                 wares.add(ware);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            throw e;
+        } catch (ClassNotFoundException e) { }
     }
 
     public Ware_type getWareTypeById(int id) throws SQLException{
-        Connection connection = DbConnector.getConnection();
-        PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM ware_type WHERE id = ?");
-        stmnt.setString(1, Integer.toString(id));
-        ResultSet res = stmnt.executeQuery();
-        if(!res.isBeforeFirst()){
-            throw new SQLException();
+        try {
+            Connection connection = DbConnector.getConnection();
+            PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM ware_type WHERE id = ?");
+            stmnt.setString(1, Integer.toString(id));
+            ResultSet res = stmnt.executeQuery();
+            if (!res.isBeforeFirst()) {
+                throw new SQLException();
+            }
+            res.next();
+            Ware_type type = new Ware_type();
+            type.setId(Integer.parseInt(res.getString("id")));
+            type.setName(res.getString("name"));
+            return type;
         }
-        res.next();
-        Ware_type type = new Ware_type();
-        type.setId(Integer.parseInt(res.getString("id")));
-        type.setName(res.getString("name"));
-        return type;
+        catch (SQLException e) {
+            throw e;
+        }
+        catch (ClassNotFoundException e) { }
+        catch (NumberFormatException e) { }
+        return null;
     }
     public Manufacturer getManufacturerById(int id) throws SQLException{
-        Connection connection = DbConnector.getConnection();
-        PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM manufacturer WHERE id = ?");
-        stmnt.setString(1, Integer.toString(id));
-        ResultSet res = stmnt.executeQuery();
-        if(!res.isBeforeFirst()){
-            throw new SQLException();
+        try {
+            Connection connection = DbConnector.getConnection();
+            PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM manufacturer WHERE id = ?");
+            stmnt.setString(1, Integer.toString(id));
+            ResultSet res = stmnt.executeQuery();
+            if (!res.isBeforeFirst()) {
+                throw new SQLException();
+            }
+            res.next();
+            Manufacturer manu = new Manufacturer();
+            manu.setId(Integer.parseInt(res.getString("id")));
+            manu.setManufacturer_name(res.getString("manufacturer_name"));
+            return manu;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        res.next();
-        Manufacturer manu = new Manufacturer();
-        manu.setId(Integer.parseInt(res.getString("id")));
-        manu.setManufacturer_name(res.getString("manufacturer_name"));
-        return manu;
+        catch (SQLException e) {
+            throw e;
+        }
+        return null;
     }
 }

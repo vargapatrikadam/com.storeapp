@@ -12,15 +12,15 @@ public class DbConnector {
     private static final String USER = "storeappdb";
     private static final String PASS = "storeappdb";
 
-    public static Connection getConnection(){
+    public static Connection getConnection() throws SQLException, ClassNotFoundException{
         if(connect == null){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 connect = DriverManager.getConnection(URL, USER, PASS);
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw e;
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                throw e;
             }
         }
         return connect;

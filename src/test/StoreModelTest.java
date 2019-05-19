@@ -1,22 +1,24 @@
-package com.assignment.models.Models;
+package test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StoreModelTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getTotalPrice() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addToShoppingListById() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void removeFromShoppingListById() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getAllWares() {
     }
 }

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class WareReceiptModel {
-    public void createWareReceipt(ArrayList<Ware> wares, long id){
+    public void createWareReceipt(ArrayList<Ware> wares, long id) throws SQLException{
         try {
             Connection connection = DbConnector.getConnection();
 
@@ -23,7 +23,7 @@ public class WareReceiptModel {
                 receiptWaresStatement.execute();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            throw e;
+        } catch (ClassNotFoundException e) { }
     }
 }

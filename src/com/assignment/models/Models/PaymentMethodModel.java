@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PaymentMethodModel {
-    public PaymentMethod getPaymentMethodByName(String name) {
+    public PaymentMethod getPaymentMethodByName(String name) throws SQLException {
         try {
             Connection connection = DbConnector.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT id, method FROM payment_method WHERE method = ?");
@@ -24,7 +24,8 @@ public class PaymentMethodModel {
             method.setMethod(res.getString("method"));
             return method;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw e;
+        } catch (ClassNotFoundException e) {
         }
         return null;
     }

@@ -32,6 +32,7 @@ public class BankCardPaymentController {
             ((BankCardInfo)checkoutController.info).setCvc(model.getCvc());
             ((BankCardInfo)checkoutController.info).setExp_date(model.getExp_date());
 
+            checkoutController.setNextButtonStatus(true);
             view.setVisible(false);
         }
     }

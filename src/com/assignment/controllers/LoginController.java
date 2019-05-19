@@ -54,7 +54,6 @@ public class LoginController {
             }
             catch(SQLException ex){
                 view.setMessage("Login unsuccessful!");
-                ex.printStackTrace();
             }
         }
     }

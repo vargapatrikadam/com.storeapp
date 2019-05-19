@@ -29,6 +29,6 @@ public class RegisterModel {
             statement.execute();
         } catch (SQLException e) {
             throw e;
-        }
+        } catch (ClassNotFoundException e) {}
     }
 }

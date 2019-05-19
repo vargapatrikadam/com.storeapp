@@ -16,6 +16,7 @@ import com.assignment.views.CheckoutView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class CheckoutController {
     private CheckoutModel model;
@@ -51,6 +52,10 @@ public class CheckoutController {
 
     }
 
+    public void setNextButtonStatus(boolean status){
+        view.setNextButtonStatus(status);
+    }
+
     class BankCardPaymentSelectedListener implements ActionListener{
 
         @Override
@@ -64,8 +69,9 @@ public class CheckoutController {
             );
             bankcardview.setVisible(true);
             info = new BankCardInfo();
+            ((BankCardInfo)info).setUser(model.getUser());
             strategy = new BankCardPayment();
-            view.setNextButtonStatus(true);
+            setNextButtonStatus(false);
         }
     }
 
@@ -98,6 +104,8 @@ public class CheckoutController {
             catch(PaymentFailedException ex) {
                 view.setNextButtonStatus(false);
                 view.setPaymentStatus(ex.getMessage());
+            } catch (SQLException ex) {
+                view.setPaymentStatus("Error connecting to the database!");
             }
         }
     }
