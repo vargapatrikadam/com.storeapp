@@ -6,6 +6,12 @@ import com.assignment.Interfaces.IPaymentInfo;
 import com.assignment.models.DB_Models.User;
 
 public class CODPayment extends PaymentStrategy {
+    /**
+     * The payment method to C.O.D
+     * @param info the user's information
+     * @return the message of the payment
+     * @throws PaymentFailedException
+     */
     @Override
     public String Pay(IPaymentInfo info) throws PaymentFailedException {
         CODInfo information = (CODInfo)info;
