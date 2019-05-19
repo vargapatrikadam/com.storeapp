@@ -75,6 +75,7 @@ public class StoreModel {
             e.printStackTrace();
         }
     }
+
     public Ware_type getWareTypeById(int id) throws SQLException{
         Connection connection = DbConnector.getConnection();
         PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM ware_type WHERE id = ?");

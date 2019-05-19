@@ -19,6 +19,7 @@ public class LoginModel {
         }
         res.next();
         User user = new User();
+        user.setId(Integer.parseInt(res.getString("id")));
         user.setCity(res.getString("city"));
         user.setEmail(res.getString("email"));
         user.setFirst_name(res.getString("first_name"));
