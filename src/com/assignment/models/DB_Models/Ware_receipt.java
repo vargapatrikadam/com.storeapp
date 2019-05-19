@@ -1,4 +1,4 @@
-package com.assignment.models;
+package com.assignment.models.DB_Models;
 
 public class Ware_receipt {
     private int id;

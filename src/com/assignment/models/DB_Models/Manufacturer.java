@@ -1,4 +1,4 @@
-package com.assignment.models;
+package com.assignment.models.DB_Models;
 
 public class Manufacturer {
     private int id;
