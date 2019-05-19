@@ -5,8 +5,8 @@ import com.assignment.models.DB_Models.User;
 
 public class CODInfo implements IPaymentInfo {
     @Override
-    public IPaymentInfo info() {
-        return this;
+    public String info() {
+        return "C_O_D";
     }
 
     private User user;

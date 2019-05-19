@@ -4,8 +4,8 @@ import com.assignment.Interfaces.IPaymentInfo;
 
 public class BankCardInfo implements IPaymentInfo {
     @Override
-    public IPaymentInfo info() {
-        return this;
+    public String info() {
+        return "BANK_CARD";
     }
     private String card_number;
     private String exp_date;
