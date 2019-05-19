@@ -1,17 +1,19 @@
 package com.assignment.views;
 
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class RegistrationView extends JFrame{
-    private JTextField username_tf;
-    private JTextField email_tf;
-    private JTextField firstname_tf;
-    private JTextField lastname_tf;
-    private JTextField postalcode_tf;
-    private JTextField city_tf;
-    private JTextField street_tf;
-    private JTextField streetnumber_tf;
+    private JFormattedTextField username_tf;
+    private JFormattedTextField email_tf;
+    private JFormattedTextField firstname_tf;
+    private JFormattedTextField lastname_tf;
+    private JFormattedTextField postalcode_tf;
+    private JFormattedTextField city_tf;
+    private JFormattedTextField street_tf;
+    private JFormattedTextField streetnumber_tf;
     private JButton registerButton;
     private JPasswordField password_pf;
     private JPanel rootPanel;

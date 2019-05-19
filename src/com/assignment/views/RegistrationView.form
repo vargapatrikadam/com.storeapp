@@ -16,7 +16,7 @@
           <text value="Username"/>
         </properties>
       </component>
-      <component id="f34f9" class="javax.swing.JTextField" binding="username_tf">
+      <component id="e919c" class="javax.swing.JFormattedTextField" binding="username_tf">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -40,7 +40,7 @@
           <text value="Email"/>
         </properties>
       </component>
-      <component id="a72fc" class="javax.swing.JTextField" binding="email_tf">
+      <component id="f727e" class="javax.swing.JFormattedTextField" binding="email_tf">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
           <text value="First name"/>
         </properties>
       </component>
-      <component id="c0f01" class="javax.swing.JTextField" binding="firstname_tf">
+      <component id="ec703" class="javax.swing.JFormattedTextField" binding="firstname_tf">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -72,7 +72,7 @@
           <text value="Last name"/>
         </properties>
       </component>
-      <component id="c4f0b" class="javax.swing.JTextField" binding="lastname_tf">
+      <component id="8caf2" class="javax.swing.JFormattedTextField" binding="lastname_tf">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -88,7 +88,7 @@
           <text value="Postal code"/>
         </properties>
       </component>
-      <component id="ada21" class="javax.swing.JTextField" binding="postalcode_tf">
+      <component id="59f73" class="javax.swing.JFormattedTextField" binding="postalcode_tf">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -104,7 +104,7 @@
           <text value="City"/>
         </properties>
       </component>
-      <component id="3b382" class="javax.swing.JTextField" binding="city_tf">
+      <component id="26ea7" class="javax.swing.JFormattedTextField" binding="city_tf">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -120,7 +120,7 @@
           <text value="Street"/>
         </properties>
       </component>
-      <component id="58b30" class="javax.swing.JTextField" binding="street_tf">
+      <component id="265b1" class="javax.swing.JFormattedTextField" binding="street_tf">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -136,7 +136,7 @@
           <text value="Street number"/>
         </properties>
       </component>
-      <component id="8e9df" class="javax.swing.JTextField" binding="streetnumber_tf">
+      <component id="10903" class="javax.swing.JFormattedTextField" binding="streetnumber_tf">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -144,7 +144,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="c1cee" class="javax.swing.JPasswordField" binding="password_pf">
+      <component id="5299f" class="javax.swing.JPasswordField" binding="password_pf">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

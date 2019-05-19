@@ -23,10 +23,13 @@ public class StoreView extends JFrame{
     private JScrollPane shopping_list_table_scoll_panel;
     private JLabel price_lbl;
     private JButton checkoutButton;
+    private JLabel transportState_lbl;
 
     public void setPriceLabel(int price){
         this.price_lbl.setText(Integer.toString(price));
     }
+
+    public void setTransportState_lbl(String state){this.transportState_lbl.setText(state);}
 
     public void setAddToShoppingListActionListener(ActionListener listener){
         this.buy_btn.addActionListener(listener);
