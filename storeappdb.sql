@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2019 at 12:07 PM
+-- Generation Time: May 20, 2019 at 12:50 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -43,7 +43,8 @@ INSERT INTO `manufacturer` (`id`, `manufacturer_name`) VALUES
 (1, 'Blizzard'),
 (2, 'Ubisoft'),
 (3, 'Microsoft'),
-(4, 'Huawei');
+(4, 'Huawei'),
+(5, 'From Software');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,12 @@ INSERT INTO `ware` (`id`, `ware_name`, `price`, `manufacturer_id`, `ware_type_id
 (3, 'Windows 10', 60000, 3, 4),
 (4, 'P30 Pro', 220000, 4, 3),
 (5, 'Diablo 3', 8000, 1, 1),
-(6, 'P30', 160000, 4, 3);
+(6, 'P30', 160000, 4, 3),
+(7, 'Starcraft 2 Collection', 12000, 1, 1),
+(8, 'Watch Dogs 2', 6000, 2, 1),
+(11, 'Dark Souls 3 Fire Fades Edition', 12000, 5, 1),
+(12, 'Sekiro Shadows Die Twice', 15000, 5, 1),
+(13, 'Bloodborne', 10000, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -305,7 +311,7 @@ ALTER TABLE `ware_type`
 -- AUTO_INCREMENT for table `manufacturer`
 --
 ALTER TABLE `manufacturer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `receipt`
@@ -323,7 +329,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `ware`
 --
 ALTER TABLE `ware`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `ware_receipt`

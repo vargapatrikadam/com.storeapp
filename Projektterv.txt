@@ -8,6 +8,7 @@ A fizetés után egy kiszállítási folyamatot szimulálunk.
 A rendeléssel keletkezett számlát eltároljuk az adatbázisban.
 
 - A külső API hiányában helyben tároljuk el egy adatbázisban az elérhető termékek listáját, ezt a felhasználó nem tudja módosítani.
+- Lokális MySQL adatbázis (WAMP vagy XAMPP-on keresztül) futtatása a program működése alatt elengedhetetlen, az adatbázis tartalma storeappdb.sql fájlban található
 
 Tervezési minták:
 	-Strategy: a két fajta fizetési mód két stratégia: 
