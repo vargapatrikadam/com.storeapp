@@ -3,6 +3,8 @@ package com.assignment.Classes;
 import com.assignment.Interfaces.IPaymentInfo;
 import com.assignment.models.DB_Models.User;
 
+import java.util.IllegalFormatException;
+
 public class BankCardInfo implements IPaymentInfo {
     @Override
     public String info() {
@@ -11,21 +13,34 @@ public class BankCardInfo implements IPaymentInfo {
     private String card_number;
     private String exp_date;
     private String cvc;
-    private String address;
 
     public String getCard_number() {
         return card_number;
     }
 
-    public void setCard_number(String card_number) {
+    /**
+     * Sets the card number for the bank card, only 16 numbers.
+     * @param card_number the card number
+     */
+    public void setCard_number(String card_number) throws IllegalArgumentException{
+        if (card_number.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("The card number cannot contain letters!");
+        }
         this.card_number = card_number;
     }
 
-    public String getExp_date() {
+    public String getExp_date(){
         return exp_date;
     }
 
-    public void setExp_date(String exp_date) {
+    /**
+     * Sets the expiration date for the bank card, only 4 characters.
+     * @param exp_date the expiration date
+     */
+    public void setExp_date(String exp_date) throws IllegalArgumentException{
+        if (exp_date.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("The expiration date cannot contain letters!");
+        }
         this.exp_date = exp_date;
     }
 
@@ -33,7 +48,14 @@ public class BankCardInfo implements IPaymentInfo {
         return cvc;
     }
 
-    public void setCvc(String cvc) {
+    /**
+     * Sets the cvc validation code for the bank card, only 3 numbers;
+     * @param cvc cvc number
+     */
+    public void setCvc(String cvc) throws IllegalArgumentException{
+        if (cvc.matches(".*[a-zA-Z].*")) {
+            throw new IllegalArgumentException("The cvc cannot contain letters!");
+        }
         this.cvc = cvc;
     }
 

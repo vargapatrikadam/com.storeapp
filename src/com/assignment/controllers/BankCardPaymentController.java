@@ -28,12 +28,15 @@ public class BankCardPaymentController {
             model.setCvc(view.getCvc());
             model.setExp_date(view.getExpDate());
 
-            ((BankCardInfo)checkoutController.info).setCard_number(model.getBank_card_number());
-            ((BankCardInfo)checkoutController.info).setCvc(model.getCvc());
-            ((BankCardInfo)checkoutController.info).setExp_date(model.getExp_date());
-
-            checkoutController.setNextButtonStatus(true);
-            view.setVisible(false);
+            try {
+                ((BankCardInfo) checkoutController.info).setCard_number(model.getBank_card_number());
+                ((BankCardInfo) checkoutController.info).setCvc(model.getCvc());
+                ((BankCardInfo) checkoutController.info).setExp_date(model.getExp_date());
+                checkoutController.setNextButtonStatus(true);
+                view.setVisible(false);
+            } catch (IllegalArgumentException ex) {
+                view.setCard_validation_lbl("The card's informations are not valid!");
+            }
         }
     }
 }

@@ -15,12 +15,11 @@ public class CODInfo implements IPaymentInfo {
         this.user = user;
     }
 
-    public String getAddress() {
+    public String getAddress() throws NullPointerException{
+        if (user.getPostal_code() == null || user.getCity() == null || user.getStreet_number() == null || user.getStreet() == null || user.getFirst_name() == null || user.getLast_name() == null)
+            throw new NullPointerException();
         return user.getPostal_code() + " " + user.getCity() + " " + user.getStreet() + " " + user.getStreet_number() + " " + user.getFirst_name() + " " + user.getLast_name();
 
     }
-
-    private String address;
-
 
 }

@@ -27,7 +27,7 @@ public class BankCardPayment extends PaymentStrategy {
      * @param information bank card's information
      * @return true if the bank card's details are valid, and false if they're not
      */
-    private boolean Transaction(BankCardInfo information){
+    public boolean Transaction(BankCardInfo information){
         if(information.getCard_number().length() == 16 && information.getCvc().length() == 3 && information.getExp_date().length() == 4)
             return true;
         else return false;
