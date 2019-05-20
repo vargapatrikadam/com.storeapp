@@ -7,8 +7,11 @@ import com.assignment.views.RegistrationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class RegisterController {
+    private static final Logger LOGGER = Logger.getLogger( RegisterController.class.getName() );
+
     private RegistrationView view;
     private RegisterModel model;
 
@@ -36,9 +39,11 @@ public class RegisterController {
                     view.getStreetNumber()
                 );
                 model.Register(newUser);
+                LOGGER.info("new user: username: " + newUser +  "successfully registered");
                 view.setMessage("Successful registration!");
             }
             catch (SQLException ex){
+                LOGGER.info("registration unsuccessful, cause: "+ex.getMessage());
                 view.setMessage("Error during registration!");
             }
         }

@@ -17,8 +17,12 @@ import com.assignment.views.CheckoutView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class CheckoutController {
+    private static final Logger LOGGER = Logger.getLogger( RegisterController.class.getName() );
+
+
     private CheckoutModel model;
     private CheckoutView view;
     private CheckoutController controller;
@@ -104,12 +108,16 @@ public class CheckoutController {
                 wareReceiptModel.createWareReceipt(storeController.getShoppingList(), id);
 
                 storeController.startDelivery(new Delivery());
+
+                LOGGER.info("Delivery started successfully!");
             }
             catch(PaymentFailedException ex) {
                 view.setNextButtonStatus(false);
                 view.setPaymentStatus(ex.getMessage());
+                LOGGER.info("Delivery & payment failed, cause: "+ex.getMessage());
             } catch (SQLException ex) {
                 view.setPaymentStatus("Error connecting to the database!");
+                LOGGER.info("Delivery & payment failed, cause: "+ex.getMessage());
             }
         }
     }

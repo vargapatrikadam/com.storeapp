@@ -11,8 +11,12 @@ import com.assignment.views.StoreView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Logger;
+
 
 public class LoginController {
+    private static final Logger LOGGER = Logger.getLogger( LoginController.class.getName() );
+
     private LoginView view;
     private LoginModel model;
 
@@ -48,11 +52,16 @@ public class LoginController {
                      StoreView storeview = new StoreView();
                      StoreController controller = new StoreController(storemod, storeview);
                      storeview.setVisible(true);
+                     LOGGER.info("username: " + username + " password: "+ password + " successfully logged in");
                      view.setVisible(false);
                  }
-                 else view.setMessage("Login unsuccessful!");
+                 else {
+                     LOGGER.info("username: " + username + " password: "+ password + " failed to login");
+                     view.setMessage("Login unsuccessful!");
+                 }
             }
             catch(SQLException ex){
+                LOGGER.info("username: " + username + "password: "+ password + " failed to login");
                 view.setMessage("Login unsuccessful!");
             }
         }
