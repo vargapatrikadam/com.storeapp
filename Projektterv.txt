@@ -1,0 +1,26 @@
+﻿StoreApp projektterv
+
+Az alkalmazás egy shop szimulálását teszi lehetővé. 
+Az alkalmazásban tudunk regisztrálni, a regisztrált felhasználókat eltároljuk az adatbázisban, majd adatbázisbéli adatellenőrzés után bejelentkezni.
+Egy táblázatból tudunk válogatni a külső api-ból érkezett árukból, majd betehetjük a kosarunkba. 
+Ezután ki tudunk csekkolni, fizetési módot választhatunk, utánvét vagy bankkártyás fizetés.
+A fizetés után egy kiszállítási folyamatot szimulálunk.
+A rendeléssel keletkezett számlát eltároljuk az adatbázisban.
+
+- A külső API hiányában helyben tároljuk el egy adatbázisban az elérhető termékek listáját, ezt a felhasználó nem tudja módosítani.
+
+Tervezési minták:
+	-Strategy: a két fajta fizetési mód két stratégia: 
+		-utánvét 
+		-bankkártyás fizetés
+	-State: a kiszállítás folyamata különböző állapotokat ír le, ezek az állapotot érkezhetnek egy külső API-ból
+		-Feldolgozás alatt
+		-Feldolgozva
+		-Depóban várakozik a csomag
+		-Futárnál a csomag
+		-Teljesítve a csomag kiszállítása
+
+Logolás:
+	Regisztrációk
+	Loginok
+	Rendelések
