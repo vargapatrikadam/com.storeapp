@@ -67,7 +67,7 @@ public class StoreView extends JFrame{
         add(rootPanel);
         setTitle("StoreApp");
         setResizable(false);
-        setSize(800,800);
+        setSize(1020,670);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         String[] colnames = {"id", "ware name", "price", "ware type", "manufacturer"};

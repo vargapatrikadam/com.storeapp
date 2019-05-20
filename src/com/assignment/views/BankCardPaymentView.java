@@ -9,6 +9,7 @@ public class BankCardPaymentView extends JFrame{
     private JTextField cvc_tf;
     private JButton payButton;
     private JPanel rootPanel;
+    private JLabel card_validation_lbl;
 
     public void setPayButtonActionListener(ActionListener listener){
         this.payButton.addActionListener(listener);
@@ -22,6 +23,10 @@ public class BankCardPaymentView extends JFrame{
     }
     public String getCvc(){
         return this.cvc_tf.getText();
+    }
+
+    public void setCard_validation_lbl(String state){
+        this.card_validation_lbl.setText(state);
     }
 
     public BankCardPaymentView() {
